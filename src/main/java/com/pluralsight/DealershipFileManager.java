@@ -4,6 +4,7 @@ import javax.imageio.IIOException;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
 public class DealershipFileManager {
 
@@ -33,7 +34,7 @@ public class DealershipFileManager {
                     String color = pipes[5];
                     int odometer = Integer.parseInt(pipes[6]);
                     double price = Double.parseDouble(pipes[7]);
-                    Vehicle vehicle = new Vehicle(vin, year, make, model, color, odometer, price);
+                    Vehicle vehicle = new Vehicle(vin, year, make, model,vehicleTypes, color, odometer, price);
                     dealership1.addVehicle(vehicle);
                 }
 
@@ -41,10 +42,9 @@ public class DealershipFileManager {
             }
             lineNumber++;
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+
         } catch (IOException e) {
-            throw new RuntimeException(e)
+            throw new RuntimeException(e);
 
         }
 
@@ -55,4 +55,4 @@ public class DealershipFileManager {
     }
 
     }
-}
+
